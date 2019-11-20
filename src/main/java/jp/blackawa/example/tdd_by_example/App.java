@@ -1,4 +1,4 @@
-package jp.blackawa;
+package jp.blackawa.example.tdd_by_example;
 
 /**
  * Hello world!
