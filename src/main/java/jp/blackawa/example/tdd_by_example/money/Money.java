@@ -8,8 +8,8 @@ class Money implements Expression {
         return new Money(amount * multiplier, currency);
     }
 
-    Expression plus(Money money) {
-        return new Money(amount + money.amount, currency);
+    Expression plus(Money addend) {
+        return new Sum(this, addend);
     }
 
     Money(int amount, String currency) {
@@ -39,5 +39,9 @@ class Money implements Expression {
     @Override
     public String toString() {
         return amount + " " + currency;
+    }
+
+    public Money reduce(String to) {
+        return this;
     }
 }
