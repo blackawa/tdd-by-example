@@ -1,15 +1,22 @@
 package jp.blackawa.example.tdd_by_example.money;
 
 public class Sum implements Expression {
-    Money augend;
-    Money addend;
+    Expression augend;
+    Expression addend;
 
-    Sum(Money augend, Money addend) {
+    Sum(Expression augend, Expression addend) {
         this.augend = augend;
         this.addend = addend;
     }
 
     public Money reduce(Bank bank, String to) {
-        return new Money(augend.amount + addend.amount, to);
+        int amount = augend.reduce(bank, to).amount
+                + addend.reduce(bank, to).amount;
+        return new Money(amount, to);
+    }
+
+    public Expression plus(Expression addend) {
+        // TODO: Sum.plus
+        return null;
     }
 }
